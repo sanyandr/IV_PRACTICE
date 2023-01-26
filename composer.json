@@ -2,5 +2,12 @@
   "require": {
     "monolog/monolog": "1.0.*",
     "slim/slim": "4.11.0"
-}
+},
+  "autoload": {
+    "psr-4": {
+      "Monolog\\": "src/",
+      "Vendor\\Namespace\\": "",
+      "mainNamespace\\": "src/mainNamespace"
+    }
+  }
 }

@@ -11,6 +11,14 @@ class ComposerStaticInit2511009f96090c609c014f28acbf0f77
     );
 
     public static $prefixLengthsPsr4 = array (
+        'm' => 
+        array (
+            'mainNamespace\\' => 14,
+        ),
+        'V' => 
+        array (
+            'Vendor\\Namespace\\' => 17,
+        ),
         'S' => 
         array (
             'Slim\\' => 5,
@@ -22,6 +30,10 @@ class ComposerStaticInit2511009f96090c609c014f28acbf0f77
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
@@ -29,6 +41,14 @@ class ComposerStaticInit2511009f96090c609c014f28acbf0f77
     );
 
     public static $prefixDirsPsr4 = array (
+        'mainNamespace\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Vendor\\Namespace\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -44,12 +64,16 @@ class ComposerStaticInit2511009f96090c609c014f28acbf0f77
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'FastRoute\\' => 
         array (

@@ -7,7 +7,7 @@
     "psr-4": {
       "Monolog\\": "src/",
       "Vendor\\Namespace\\": "",
-      "mainNamespace\\": "src/mainNamespace"
+      "mainNamespace\\": "src/"
     }
   }
 }

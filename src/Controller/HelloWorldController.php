@@ -2,9 +2,12 @@
     namespace mainNamespace\Controller;
 
 class HelloWorldController {
-
     public function exec() {
 
-        echo "<h1> Hello, World! </h1>";
+        echo "Hello, World!";
+    }
+    public function index($request, $response) {
+
+        return "Hello, World!";
     }
 }

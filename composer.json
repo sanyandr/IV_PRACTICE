@@ -3,13 +3,15 @@
     "monolog/monolog": "1.0.*",
     "slim/slim": "4.11.0",
     "php-di/php-di": "^7.0",
-    "slim/psr7": "^1.6"
-},
+    "slim/psr7": "^1.6",
+    "ext-pdo": "*"
+  },
   "autoload": {
     "psr-4": {
       "Monolog\\": "src/",
       "Vendor\\Namespace\\": "",
-      "mainNamespace\\": "src/"
+      "mainNamespace\\": "src/",
+      "db\\": "app/db"
     }
   }
 }

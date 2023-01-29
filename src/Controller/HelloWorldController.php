@@ -5,8 +5,7 @@
 
 class HelloWorldController {
 
-    public function index(Request $request, Response $response): Response
-    {
+    public function index(Request $request, Response $response): Response {
         $response->getBody()->write("Hello, World!");
         return $response;
     }

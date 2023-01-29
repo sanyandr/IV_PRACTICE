@@ -6,12 +6,14 @@ use PDO;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ReviewByIDController {
+class ReviewsByPages {
 
     public static function index(Request $request, Response $response, $args): Response {
-        $ID = $args['ID'];
-        $result = (new dbFunctions())->getByID($ID);
-        $response->getBody()->write(json_encode($result));
+        $page = $args['page'] ?? 1;
+        $result = (new dbFunctions())->getLimited($page);
+        foreach ($result as $item) {
+            $response->getBody()->write(json_encode($item));
+        }
         return $response;
     }
 

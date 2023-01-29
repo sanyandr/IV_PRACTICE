@@ -23,6 +23,13 @@ class dbFunctions {
             $reviewArray[$ID] = $obj;
         }
         return $reviewArray;
+    }
 
+    public function getLimited($page) {
+        $limit = 20;
+        $offset = $limit * ($page - 1);
+        $sql = "SELECT * FROM review LIMIT $limit OFFSET $offset";
+        $state = (new SQLiteConnection())->Connect()->query($sql);
+        return $state->fetchAll(PDO::FETCH_ASSOC);
     }
 }

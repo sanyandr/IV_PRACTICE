@@ -11,9 +11,7 @@ class ReviewsByPages {
     public static function index(Request $request, Response $response, $args): Response {
         $page = $args['page'] ?? 1;
         $result = (new dbFunctions())->getLimited($page);
-        foreach ($result as $item) {
-            $response->getBody()->write('<pre>'.json_encode($item).'</pre>');
-        }
+        $response->getBody()->write(json_encode($result));
         return $response;
     }
 

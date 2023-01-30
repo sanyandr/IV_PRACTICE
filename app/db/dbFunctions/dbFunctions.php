@@ -13,29 +13,28 @@ class dbFunctions {
     #returns object class ObjectReview
     public function getByID(int $ID) {
         $sql = "SELECT * FROM review WHERE review.ID == $ID";
-        $state = (new SQLiteConnection())->Connect()->query($sql);
+        $state = (new SQLiteConnection())->Connect()->prepare($sql);
+        $state->execute();
         $state->setFetchMode(PDO::FETCH_INTO, new ObjectReview());
         return $state->fetch();
     }
 
     #not used yet, ID hardcoded
     public function getAll() {
-        $reviewArray = array();
-        for ($ID = 0; $ID < 3; $ID++) {
-            $sql = "SELECT * FROM review WHERE review.ID == $ID";
-            $state = (new SQLiteConnection())->Connect()->query($sql);
-            $state->setFetchMode(PDO::FETCH_INTO, new ObjectReview());
-            $obj = $state->fetch();
-            $reviewArray[$ID] = $obj;
-        }
-        return $reviewArray;
+        $sql = "SELECT * FROM review";
+        $state = (new SQLiteConnection())->Connect()->prepare($sql);
+        $state->execute();
+        $state->setFetchMode(PDO::FETCH_CLASS, "db\Objects\ObjectReview");
+        return $state->fetchALL();
     }
 
     public function getLimited($page) {
         $limit = 20;
         $offset = $limit * ($page - 1);
         $sql = "SELECT * FROM review LIMIT $limit OFFSET $offset";
-        $state = (new SQLiteConnection())->Connect()->query($sql);
-        return $state->fetchAll(PDO::FETCH_ASSOC);
+        $state = (new SQLiteConnection())->Connect()->prepare($sql);
+        $state->execute();
+        $state->setFetchMode(PDO::FETCH_CLASS, "db\Objects\ObjectReview");
+        return $state->fetchAll();
     }
 }

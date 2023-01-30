@@ -8,10 +8,7 @@ class HomeController {
 
     public function index(Request $request, Response $response): Response {
         $result = (new dbFunctions())->getAll();
-        foreach ($result as $item) {
-            $response->getBody()->write('<pre>'.json_encode($item).'</pre>');
-        }
-
+        $response->getBody()->write(json_encode($result));
         return $response;
     }
 

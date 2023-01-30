@@ -6,11 +6,12 @@ use db\SQLiteConnection\SQLiteConnection;
 use PDO;
 
 require __DIR__ . '/../../vendor/autoload.php';
-//
+
+////file used for dbFunctions testing
 //$state = (new SQLiteConnection())->Connect()->query("SELECT * FROM review ");
 //$rows = $state->fetchAll(PDO::FETCH_ASSOC);
 
-(new dbFunctions())->deleteReview(3);
+//(new dbFunctions())->deleteReview(3);
 //$array = (new dbFunctions())->getLimited();
 //foreach ($array as $value) {
 //    echo("<pre>");

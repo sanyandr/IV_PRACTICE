@@ -1,5 +1,4 @@
 <?php
-
 use Slim\Factory\AppFactory;
 require __DIR__ . '/../../vendor/autoload.php';
 require_once "../db/databaseLogic.php";
@@ -14,5 +13,7 @@ $app->get('/hello', '\mainNamespace\Controller\HelloWorldController:index');
 $app->get('/api/review/{ID}', \mainNamespace\Controller\ReviewByIDController::class . ':index');
 //Get all reviews by {page №}
 $app->get('/api/reviews/page/[{page}]', \mainNamespace\Controller\ReviewsByPages::class . ':index');
+
+$app->get('/ReviewsOnline/Home', '\mainNamespace\Controller\HomeController:index');
 
 $app->run();

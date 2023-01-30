@@ -10,7 +10,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 //$state = (new SQLiteConnection())->Connect()->query("SELECT * FROM review ");
 //$rows = $state->fetchAll(PDO::FETCH_ASSOC);
 
-////$result = (new dbFunctions())->getByID(2);
+(new dbFunctions())->deleteReview(3);
 //$array = (new dbFunctions())->getLimited();
 //foreach ($array as $value) {
 //    echo("<pre>");

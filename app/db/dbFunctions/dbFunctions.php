@@ -5,7 +5,12 @@ use db\SQLiteConnection\SQLiteConnection;
 use PDO;
 
 class dbFunctions {
+    public function deleteReview(int $ID) {
+        $sql = "DELETE FROM review WHERE review.ID == $ID";
+        (new SQLiteConnection())->Connect()->query($sql);
+    }
 
+    #returns object class ObjectReview
     public function getByID(int $ID) {
         $sql = "SELECT * FROM review WHERE review.ID == $ID";
         $state = (new SQLiteConnection())->Connect()->query($sql);
@@ -13,9 +18,10 @@ class dbFunctions {
         return $state->fetch();
     }
 
+    #not used yet, ID hardcoded
     public function getAll() {
         $reviewArray = array();
-        for ($ID = 0; $ID < 20; $ID++) {
+        for ($ID = 0; $ID < 3; $ID++) {
             $sql = "SELECT * FROM review WHERE review.ID == $ID";
             $state = (new SQLiteConnection())->Connect()->query($sql);
             $state->setFetchMode(PDO::FETCH_INTO, new ObjectReview());

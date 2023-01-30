@@ -1,19 +1,17 @@
 <?php
 namespace mainNamespace\Controller;
 use db\dbFunctions\dbFunctions;
-use db\SQLiteConnection\SQLiteConnection;
-use PDO;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-class ReviewsByPages {
+class HomeController {
 
-    public static function index(Request $request, Response $response, $args): Response {
-        $page = $args['page'] ?? 1;
-        $result = (new dbFunctions())->getLimited($page);
+    public function index(Request $request, Response $response): Response {
+        $result = (new dbFunctions())->getAll();
         foreach ($result as $item) {
             $response->getBody()->write('<pre>'.json_encode($item).'</pre>');
         }
+
         return $response;
     }
 

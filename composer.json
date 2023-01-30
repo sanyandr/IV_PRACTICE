@@ -2,6 +2,7 @@
   "require": {
     "monolog/monolog": "1.0.*",
     "slim/slim": "4.11.0",
+    "twbs/bootstrap-icons": "*",
     "php-di/php-di": "^7.0",
     "slim/psr7": "^1.6",
     "ext-pdo": "*",

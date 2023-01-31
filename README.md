@@ -16,9 +16,9 @@
   * отзыв по ID, 
   * список отзывов с постраничной навигацией, страница прописывается опционально в URL, если = null => 1
   * удаления, ID удаляемого отзыва указывается в URL
-  * Add и Update пока не сделал \
+  * Add и Update пока не сделал 
   
-возвращают $response с content-type: application/json) \
+возвращают $response с content-type: application/json) 
 
 Защита контроллера удаления (конкретного route) c помощью Tuupola\Middleware\HttpBasicAuthentication (slim BASIC auth) </br>
 Сверстал форму, но пока не применял (как я понял это оптимально) render() для отображения и не разбирал JS </br>

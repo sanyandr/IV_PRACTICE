@@ -6,7 +6,8 @@
     "php-di/php-di": "^7.0",
     "slim/psr7": "^1.6",
     "ext-pdo": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "tuupola/slim-basic-auth": "^3.3"
   },
   "autoload": {
     "psr-4": {

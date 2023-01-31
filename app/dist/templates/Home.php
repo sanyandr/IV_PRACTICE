@@ -26,10 +26,7 @@
     </div>
 </div>
 <div class="container">
-    <?php
-        foreach ($list as $item) :?>
-        <H2> <?php echo $item; ?> </H2>
-    ?>
+
 </div>
 </body>
 

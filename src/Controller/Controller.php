@@ -6,7 +6,8 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 class Controller
 {
-    public function DeleteController(Request $request, Response $response, int $ID): Response {
+    public function DeleteController(Request $request, Response $response, $args): Response {
+        $ID = $args['ID'];
         (new dbFunctions())->deleteReview($ID);
         return (new Controller)->HomeController($request, $response);
     }
@@ -18,6 +19,7 @@ class Controller
 
     public function HomeController(Request $request, Response $response): Response {
         $result = (new dbFunctions())->getAll();
+        header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;
     }
@@ -25,6 +27,7 @@ class Controller
     public function ReviewByIDController(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
         $result = (new dbFunctions())->getByID($ID);
+        header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;
     }
@@ -32,6 +35,7 @@ class Controller
     public function ReviewsByPagesController(Request $request, Response $response, $args): Response {
         $page = $args['page'] ?? 1;
         $result = (new dbFunctions())->getLimited($page);
+        header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;
     }

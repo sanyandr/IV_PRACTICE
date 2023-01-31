@@ -7,7 +7,8 @@ use PDO;
 class dbFunctions {
     public function deleteReview(int $ID) {
         $sql = "DELETE FROM review WHERE review.ID == $ID";
-        (new SQLiteConnection())->Connect()->query($sql);
+        $state = (new SQLiteConnection())->Connect()->prepare($sql);
+        $state->execute();
     }
 
     #returns object class ObjectReview

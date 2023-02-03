@@ -1,40 +1,41 @@
 <?php
-namespace mainNamespace\Controller;
-use db\dbFunctions\dbFunctions;
+namespace Sanyandr\Practice\Controller;
+
+use Sanyandr\Practice\DBFunctions\DBFunctions;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 class Controller
 {
-    public function DeleteController(Request $request, Response $response, $args): Response {
+    public function Delete(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        (new dbFunctions())->deleteReview($ID);
-        return (new Controller)->HomeController($request, $response);
+        (new DBFunctions())->DeleteReview($ID);
+        return (new Controller)->Home($request, $response);
     }
 
-    public function HelloWorldController(Request $request, Response $response): Response  {
+    public function HelloWorld(Request $request, Response $response): Response  {
         $response->getBody()->write("Hello, World!");
         return $response;
     }
 
-    public function HomeController(Request $request, Response $response): Response {
-        $result = (new dbFunctions())->getAll();
+    public function Home(Request $request, Response $response): Response {
+        $result = (new DBFunctions())->GetAll();
         header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;
     }
 
-    public function ReviewByIDController(Request $request, Response $response, $args): Response {
+    public function ReviewByID(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        $result = (new dbFunctions())->getByID($ID);
+        $result = (new DBFunctions())->GetByID($ID);
         header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;
     }
 
-    public function ReviewsByPagesController(Request $request, Response $response, $args): Response {
+    public function ReviewsByPages(Request $request, Response $response, $args): Response {
         $page = $args['page'] ?? 1;
-        $result = (new dbFunctions())->getLimited($page);
+        $result = (new DBFunctions())->GetLimited($page);
         header('Content-Type: application/json; charset=utf-8');
         $response->getBody()->write(json_encode($result));
         return $response;

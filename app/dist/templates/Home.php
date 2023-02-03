@@ -26,7 +26,10 @@
     </div>
 </div>
 <div class="container">
-
+    <?php foreach ($array as $item) {
+        echo $item;
+    }
+    ?>
 </div>
 </body>
 

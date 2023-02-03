@@ -1,25 +1,26 @@
 <?php
 use Slim\Factory\AppFactory;
 require __DIR__ . '/../../vendor/autoload.php';
-require_once "../db/databaseLogic.php";
 
 $app = AppFactory::create();
 
 $app->setBasePath("/app/public");
 //Hello World;
-$app->get('/hello', '\mainNamespace\Controller\Controller:HelloWorldController');
+$app->get('/hello', 'Sanyandr\Practice\Controller\Controller:HelloWorld');
 
 //API get review by ID
-$app->get('/api/review/{ID}', \mainNamespace\Controller\Controller::class . ':ReviewByIDController');
+$app->get('/api/review/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':ReviewByID');
 //Get all reviews by {page №}
-$app->get('/api/reviews/page/[{page}]', \mainNamespace\Controller\Controller::class . ':ReviewsByPagesController');
+$app->get('/api/reviews/page/[{page}]', \Sanyandr\Practice\Controller\Controller::class . ':ReviewsByPages');
 
 $ini = parse_ini_file('../dist/admin.ini');
 //echo $ini['db_password'];
 $admin_password = $ini['db_password'];
 $admin_name = $ini['db_user'];
 
-$app->get('/ReviewsOnline/Home', '\mainNamespace\Controller\Controller:HomeController');
+//$app->get('/ReviewsOnline/Home', '\mainNamespace\Controller\Controller:Home' [
+//        $app->render('../../dist/templates/Hone.php', array('response' => 'array'))
+//    ]);
 
 
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
@@ -29,5 +30,5 @@ $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
         "$admin_name" => "$admin_password",
     ]
 ]));
-$app->get('/ReviewsOnline/AdminConsole/{ID}', \mainNamespace\Controller\Controller::class . ':DeleteController');
+$app->get('/ReviewsOnline/AdminConsole/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':Delete');
 $app->run();

@@ -1,7 +1,7 @@
 <?php
-namespace db\Objects;
+namespace Sanyandr\Practice\Entity;
 
-class ObjectReview {
+class Review {
     public $ID = 0;
     public $text = "";
     public $rate = 0;

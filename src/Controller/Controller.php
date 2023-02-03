@@ -1,16 +1,15 @@
 <?php
 namespace Sanyandr\Practice\Controller;
 
-use Sanyandr\Practice\DBFunctions\DBFunctions;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class Controller
 {
     public function delete(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        (new DBFunctions())->deleteReview($ID);
-        $result = (new DBFunctions())->getAll();
+        call_user_func('Sanyandr\Practice\DBFunctions::deleteReview', $ID);
+        $result = call_user_func('Sanyandr\Practice\DBFunctions::getAll');
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
@@ -21,21 +20,21 @@ class Controller
     }
 
     public function home(Request $request, Response $response): Response {
-        $result = (new DBFunctions())->getAll();
+        $result = call_user_func('Sanyandr\Practice\DBFunctions::getAll');
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
 
     public function reviewByID(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        $result = (new DBFunctions())->getByID($ID);
+        $result = call_user_func('Sanyandr\Practice\DBFunctions::getByID', $ID);
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
 
     public function reviewsByPages(Request $request, Response $response, $args): Response {
         $page = $args['page'] ?? 1;
-        $result = (new DBFunctions())->getLimited($page);
+        $result = call_user_func('Sanyandr\Practice\DBFunctions::getLimited', $page);
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }

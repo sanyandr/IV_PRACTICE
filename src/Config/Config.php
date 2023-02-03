@@ -4,13 +4,13 @@ class Config {
     /**
      * path to the sqlite file
      */
-    const pathToDB = "/Users/aleksandrboot/Desktop/IV-PRACTICE/project/app/db/var/reviews.db";
+    public const pathToDB = "/Users/aleksandrboot/Desktop/IV-PRACTICE/project/app/db/var/reviews.db";
 
 //    public function __construct($pathToDB) {
 //        $this->pathToDB = $pathToDB;
 //    }
-
-//    public function GetDBPath() : string {
+//
+//    public function getDBPath() : string {
 //        return $this->pathToDB;
 //    }
 }

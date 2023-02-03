@@ -18,9 +18,7 @@ $ini = parse_ini_file('../dist/admin.ini');
 $admin_password = $ini['db_password'];
 $admin_name = $ini['db_user'];
 
-//$app->get('/ReviewsOnline/Home', '\mainNamespace\Controller\Controller:Home' [
-//        $app->render('../../dist/templates/Hone.php', array('response' => 'array'))
-//    ]);
+$app->get('/ReviewsOnline/Home', 'Sanyandr\Practice\Controller\Controller:home');
 
 
 $app->add(new Tuupola\Middleware\HttpBasicAuthentication([

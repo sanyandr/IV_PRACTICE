@@ -1,9 +1,9 @@
 <?php
-namespace Sanyandr\Practice\SQLiteConnection;
+namespace Sanyandr\Practice;
 
-use Sanyandr\Practice\Config\Config;
 use PDO;
 use PDOException;
+use Sanyandr\Practice\Config\Config;
 
 class SQLiteConnection {
 //    protected Config $configInstance;

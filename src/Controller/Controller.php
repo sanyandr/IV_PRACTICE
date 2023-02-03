@@ -10,7 +10,9 @@ class Controller
     public function Delete(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
         (new DBFunctions())->DeleteReview($ID);
-        return (new Controller)->Home($request, $response);
+        $result = (new DBFunctions())->GetAll();
+        $response->getBody()->write(json_encode($result));
+        return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
 
     public function HelloWorld(Request $request, Response $response): Response  {

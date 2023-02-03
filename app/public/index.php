@@ -6,12 +6,12 @@ $app = AppFactory::create();
 
 $app->setBasePath("/app/public");
 //Hello World;
-$app->get('/hello', 'Sanyandr\Practice\Controller\Controller:HelloWorld');
+$app->get('/hello', 'Sanyandr\Practice\Controller\Controller:helloWorld');
 
 //API get review by ID
-$app->get('/api/review/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':ReviewByID');
+$app->get('/api/review/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':reviewByID');
 //Get all reviews by {page №}
-$app->get('/api/reviews/page/[{page}]', \Sanyandr\Practice\Controller\Controller::class . ':ReviewsByPages');
+$app->get('/api/reviews/page/[{page}]', \Sanyandr\Practice\Controller\Controller::class . ':reviewsByPages');
 
 $ini = parse_ini_file('../dist/admin.ini');
 //echo $ini['db_password'];
@@ -30,5 +30,5 @@ $app->add(new Tuupola\Middleware\HttpBasicAuthentication([
         "$admin_name" => "$admin_password",
     ]
 ]));
-$app->get('/ReviewsOnline/AdminConsole/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':Delete');
+$app->get('/ReviewsOnline/AdminConsole/{ID}', \Sanyandr\Practice\Controller\Controller::class . ':delete');
 $app->run();

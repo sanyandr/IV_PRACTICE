@@ -13,7 +13,7 @@ class SQLiteConnection {
 //    }
 
 #returns object which is new PDO connect
-    public function Connect() {
+    public function connect() {
         try {
             return new PDO("sqlite:" . Config::pathToDB);
         }

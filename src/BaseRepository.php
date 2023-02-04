@@ -2,7 +2,7 @@
 namespace Sanyandr\Practice;
 use Sanyandr\Practice\Entity\Review;
 use PDO;
-class DBFunctions {
+class BaseRepository {
 //    protected SQLiteConnection $sqlite;
 //
 //    public function __construct(SQLiteConnection $sqlite) {

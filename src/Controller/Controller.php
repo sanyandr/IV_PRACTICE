@@ -8,8 +8,8 @@ class Controller
 {
     public function delete(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        call_user_func('Sanyandr\Practice\DBFunctions::deleteReview', $ID);
-        $result = call_user_func('Sanyandr\Practice\DBFunctions::getAll');
+        call_user_func('Sanyandr\Practice\BaseRepository::deleteReview', $ID);
+        $result = call_user_func('Sanyandr\Practice\BaseRepository::getAll');
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
@@ -20,21 +20,21 @@ class Controller
     }
 
     public function home(Request $request, Response $response): Response {
-        $result = call_user_func('Sanyandr\Practice\DBFunctions::getAll');
+        $result = call_user_func('Sanyandr\Practice\BaseRepository::getAll');
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
 
     public function reviewByID(Request $request, Response $response, $args): Response {
         $ID = $args['ID'];
-        $result = call_user_func('Sanyandr\Practice\DBFunctions::getByID', $ID);
+        $result = call_user_func('Sanyandr\Practice\BaseRepository::getByID', $ID);
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
 
     public function reviewsByPages(Request $request, Response $response, $args): Response {
         $page = $args['page'] ?? 1;
-        $result = call_user_func('Sanyandr\Practice\DBFunctions::getLimited', $page);
+        $result = call_user_func('Sanyandr\Practice\BaseRepository::getLimited', $page);
         $response->getBody()->write(json_encode($result));
         return $response->withHeader('Content-Type', 'application/json; charset=utf-8');
     }
